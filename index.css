@@ -1,0 +1,234 @@
+* {
+    /*Editar los margenes predefinidos de la pagina*/
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ui-widget-header {
+    color: #333;
+    font-weight: bold;
+    padding-left: 110px !important;
+    box-sizing: border-box !important;
+    padding-bottom: 7px !important;
+}
+
+body {
+    background: url('./src/img/1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#tabular {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+body header h1 {
+    text-align: center;
+    width: 45%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0px 0px 5px white;
+    color: rgb(27, 27, 27);
+    letter-spacing: 3px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    font-weight: normal;
+    color: #fff;
+    background: rgb(23, 67, 109) !important;
+    border: 0 !important;
+    outline: 0 !important;
+}
+
+.contenedor {
+    max-width: 1400px;
+    width: 100%;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 99.8%;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+.form {
+    margin-left: 280px;
+    width: 50%;
+}
+
+.form input[type="text"] {
+    width: 15%;
+}
+
+#formulario,
+#formulario-fp,
+#formulario-fp-m,
+#formulario-iteracion,
+#formulario-newton,
+#formulario-secante {
+    margin-left: 30px;
+}
+
+.posicion {
+    width: 49%;
+    box-sizing: border-box;
+    margin-top: 25px;
+    margin-right: 28px;
+    height: 64vh;
+}
+
+.flex-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.resultados {
+    font-weight: 300px;
+    box-sizing: border-box;
+    height: 64vh;
+    width: 48%;
+    margin-top: 25px;
+    text-align: center;
+    border-radius: 4px;
+    letter-spacing: 6px;
+    box-shadow: 0px 0px 10px #ccc;
+    padding-bottom: 15px;
+}
+
+.resultados h1 {
+    color: rgb(23, 67, 109);
+}
+
+input[type="text"] {
+    padding: 3px;
+    width: 15%;
+    margin-right: 15px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    background: rgba(23, 67, 109, 0.09);
+}
+
+input[type="submit"] {
+    padding: 7px;
+    border: 0;
+    box-sizing: border-box;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    background: rgb(23, 67, 109);
+    transition: 500ms;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    transition: 500ms;
+    background: rgba(23, 67, 109, 0.8);
+}
+
+.ecuacion {
+    width: 25% !important;
+}
+
+.results {
+    margin-top: 10px;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 300px;
+}
+
+.results label {
+    display: block;
+    font-weight: 450;
+}
+
+.inputs-fixed {
+    border: 0;
+    border: 1.5px solid #ccc;
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    width: 280px;
+    background: transparent;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+    }
+    .resultados {
+        width: 100%;
+        margin-bottom: 20px;
+        background: white;
+    }
+    #plot-biseccion,
+    #plot-falsa-posicion,
+    #plot-falsa-posicion-m,
+    #plot-iteracion,
+    #plot-newton,
+    #plot-secante {
+        overflow: scroll;
+        width: 100%;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
+    input[type="submit"] {
+        width: 100%;
+    }
+    .ui-widget-header {
+        padding-left: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .ui-tabs .ui-tabs-nav li {
+        width: 100% !important;
+    }
+    .flex-content {
+        display: block;
+    }
+    #formulario,
+    #formulario-fp,
+    #formulario-fp-m,
+    #formulario-iteracion,
+    #formulario-newton,
+    #formulario-secante {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    body header h1 {
+        width: 100%;
+    }
+    .form {
+        margin-left: 10px;
+        width: 100%;
+    }
+    .ecuacion {
+        width: 100% !important;
+    }
+    #form input[type="text"],
+    #form-fp input[type="text"],
+    #form-fp-m input[type="text"],
+    #form-iteracion input[type="text"],
+    #form-newton input[type="text"],
+    #form-secante input[type="text"] {
+        width: 100%;
+    }
+}

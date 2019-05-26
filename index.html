@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>It isn't a title </title>
+    <meta name="description" content="calculadora de metodos numericos utilizando bundle" />
+    <meta name="keywords" content="calculadora,metodos,numericos" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+    <!--Jquery y Jquery UI-->
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="jquery/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="jquery/jquery-ui/jquery-ui.theme.min.css">
+    <script src="jquery/jquery-ui/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <header class="contenedor">
+        <h1>Calculadora de raíces</h1>
+    </header>
+    <div class="contenedor">
+        <main id="tabular">
+            <!--Navegador-->
+            <nav>
+                <ul>
+                    <li><a href="#biseccion">Bisección</a></li>
+                    <li><a href="#falsa-posicion">Falsa posición</a></li>
+                    <li><a href="#falsa-posicion-modificada">Falsa posición modificada</a></li>
+                    <li><a href="#punto-fijo">Iteración simple punto fijo</a></li>
+                    <li><a href="#newton-raphson">Método Newton-Raphson</a></li>
+                    <li><a href="#metodo-secante">Método de la secante</a></li>
+
+                </ul>
+            </nav>
+            <!--Biseccion-->
+            <section id="biseccion">
+                <div class="container">
+
+                    <form id="formulario" action="#" onsubmit="return false;">
+                        <label for="xl"><strong>Xl</strong></label>
+                        <input id="xl" type="text" required/>
+                        <label for="xu"><strong>Xu</strong></label>
+                        <input id="xu" type="text" required/>
+                        <label for="cifras"><strong>Cifras</strong></label>
+                        <input id="cifras" type="text" value="8" required/>
+                        <input id="calcular" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form" action="#" onsubmit="return false;">
+                        <label for="eq"><strong>Ecuación</strong></label>
+                        <input type="text" id="eq" class="ecuacion" value="x" required/>
+                        <input type="submit" value="Graficar" id="graficar" />
+                    </form>
+
+                </div>
+                <div class="flex-content">
+
+                    <aside class="resultados" id="resultados">
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+
+                        <div class="results">
+
+                            <label for="iteraciones">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones" type="text" id="iteraciones" readonly>
+
+                            <label for="error-esperado">Error esperado</label>
+                            <input class="inputs-fixed" name="error-esperado" type="text" id="errorEsperado" readonly>
+
+                            <label for="error-aproximado">Error aproximado</label>
+                            <input class="inputs-fixed" name="error-aproximado" type="text" id="errorAproximado" readonly>
+
+                            <label for="raiz-aproximada">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raiz-aproximada" type="text" id="raizAproximada" readonly>
+
+                            <label for="valor-reemplazando">F(xr)</label>
+                            <input class="inputs-fixed" name="valor-reemplazando" type="text" id="valorReemplazando" readonly>
+
+                        </div>
+                    </aside>
+                    <!--Grafica bisección-->
+                    <div class="posicion" id="plot-biseccion"></div>
+                </div>
+            </section>
+
+            <!--Falsa posición-->
+            <section id="falsa-posicion">
+                <div class="container">
+
+                    <form id="formulario-fp" action="#" onsubmit="return false;">
+                        <label for="xl-fp"><strong>Xl</strong></label>
+                        <input id="xl-fp" type="text" required/>
+
+                        <label for="xu-fp"><strong>Xu</strong></label>
+                        <input id="xu-fp" type="text" required/>
+                        <label for="cifras-fp"><strong>Cifras</strong></label>
+                        <input id="cifras-fp" type="text" value="8" required/>
+                        <input id="calcular-fp" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form-fp" action="#" onsubmit="return false;">
+                        <label for="ecuacion-fp"><strong>Ecuación</strong></label>
+                        <input type="text" class="ecuacion" id="ecuacion-fp" value="x^2-2" required/>
+                        <input type="submit" value="Graficar" id="graficar-fp" />
+                    </form>
+
+                </div>
+
+
+                <div class="flex-content">
+                    <aside class="resultados" id="resultados-fp">
+
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+
+                        <div class="results">
+
+                            <label for="iteraciones-fp">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones-fp" type="text" id="iteraciones-fp" readonly>
+
+                            <label for="errorEsperado-fp">Error esperado</label>
+                            <input class="inputs-fixed" name="errorEsperado-fp" type="text" id="errorEsperado-fp" readonly>
+
+                            <label for="errorAproximado-fp">Error aproximado</label>
+                            <input class="inputs-fixed" name="errorAproximado-fp" type="text" id="errorAproximado-fp" readonly>
+
+                            <label for="raizAproximada-fp">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raizAproximada-fp" type="text" id="raizAproximada-fp" readonly>
+
+                            <label for="valorReemplazando-fp">F(xr)</label>
+                            <input class="inputs-fixed" name="valorReemplazando-fp" type="text" id="valorReemplazando-fp" readonly>
+
+                        </div>
+
+                    </aside>
+                    <!--Grafica falsa posición-->
+                    <div class="contenedor posicion" id="plot-falsa-posicion"></div>
+                </div>
+            </section>
+
+
+            <!--Falsa posición modificada-->
+            <section id="falsa-posicion-modificada">
+                <div class="container">
+
+                    <form id="formulario-fp-m" action="#" onsubmit="return false;">
+                        <label for="xl-fp-m"><strong>xl</strong></label>
+                        <input id="xl-fp-m" type="text" required/>
+
+                        <label for="xu-fp-m"><strong> xu</strong></label>
+                        <input id="xu-fp-m" type="text" required/>
+
+                        <label for="cifras-fp-m"><strong>Cifras</strong></label>
+                        <input id="cifras-fp-m" type="text" value="8" required/>
+                        <input id="calcular-fp-m" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form-fp-m" action="#" onsubmit="return false;">
+                        <label for="ecuacion-fp-m"><strong>Ecuación</strong></label>
+                        <input type="text" id="ecuacion-fp-m" class="ecuacion" value="x^16" required/>
+                        <input type="submit" value="Graficar" id="graficar-fp-m" />
+                    </form>
+
+                </div>
+                <div class="flex-content">
+
+                    <aside class="resultados" id="resultados-m">
+
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+
+                        <div class="results">
+                            <label for="iteraciones-fp-m">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones-fp-m" type="text" id="iteraciones-fp-m" readonly>
+
+                            <label for="errorEsperado-fp-m">Error esperado</label>
+                            <input class="inputs-fixed" name="errorEsperado-fp-m" type="text" id="errorEsperado-fp-m" readonly>
+
+                            <label for="errorAproximado-fp-m">Error aproximado</label>
+                            <input class="inputs-fixed" name="errorAproximado-fp-m" type="text" id="errorAproximado-fp-m" readonly>
+
+                            <label for="raizAproximada-fp-m">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raizAproximada-fp-m" type="text" id="raizAproximada-fp-m" readonly>
+
+                            <label for="valorReemplazando-fp-m">F(xr)</label>
+                            <input class="inputs-fixed" name="valorReemplazando-fp-m" type="text" id="valorReemplazando-fp-m" readonly>
+                        </div>
+                    </aside>
+                    <!--Grafica falsa posicion modificada-->
+                    <div class="contenedor posicion" id="plot-falsa-posicion-m"></div>
+                </div>
+            </section>
+
+            <!--Iteración simple de punto fijo-->
+            <section id="punto-fijo">
+
+                <div class="container">
+
+                    <form id="formulario-iteracion" action="#" onsubmit="return false;">
+                        <label for="u"><strong>U</strong></label>
+                        <input id="u" type="text" required/>
+
+                        <label for="cifras-iteracion"><strong>Cifras</strong></label>
+                        <input id="cifras-iteracion" type="text" value="8" required/>
+                        <input id="calcular-iteracion" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form-iteracion" action="#" onsubmit="return false;">
+                        <label for="ecuacion-iteracion"><strong>Ecuación</strong></label>
+                        <input type="text" id="ecuacion-iteracion" class="ecuacion" value="1-x" required/>
+                        <input type="submit" value="Graficar" id="graficar-iteracion" />
+                    </form>
+
+                </div>
+                <div class="flex-content">
+                    <aside class="resultados" id="resultados-iteracion">
+
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+                        <div class="results">
+                            <label for="iteraciones-iteracion">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones-iteracion" type="text" id="iteraciones-iteracion" readonly>
+
+                            <label for="errorAproximado-iteracion">Error aproximado</label>
+                            <input class="inputs-fixed" name="errorAproximado-iteracion" type="text" id="errorAproximado-iteracion" readonly>
+
+                            <label for="raizAproximada-iteracion">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raizAproximada-iteracion" type="text" id="raizAproximada-iteracion" readonly>
+
+                            <label for="valorReemplazando-iteracion">F(xr)</label>
+                            <input class="inputs-fixed" name="valorReemplazando-iteracion" type="text" id="valorReemplazando-iteracion" readonly>
+
+
+                        </div>
+
+                    </aside>
+                    <!--Grafica iteración -->
+                    <div class="contenedor posicion" id="plot-iteracion"></div>
+                </div>
+            </section>
+
+            <!--Metodo de newton rhapson-->
+            <section id="newton-raphson">
+                <div class="container">
+                    <form id="formulario-newton" action="#" onsubmit="return false;">
+                        <label for="xi"><strong>Xi</strong></label>
+                        <input id="xi" type="text" value="1.7" required/>
+
+                        <label for="cifras-newton"><strong>Cifras</strong></label>
+                        <input id="cifras-newton" type="text" value="8" required/>
+                        <input id="calcular-newton" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form-newton" action="#" onsubmit="return false;">
+                        <label for="ecuacion-newton"><strong>Ecuación</strong></label>
+                        <input type="text" id="ecuacion-newton" class="ecuacion" value="e^(-2x)-3" required/>
+                        <input type="submit" value="Graficar" id="graficar-newton" />
+                    </form>
+
+                </div>
+                <div class="flex-content">
+                    <aside class="resultados" id="resultados-newton">
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+
+                        <div class="results">
+                            <label for="iteraciones-newton">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones-newton" type="text" id="iteraciones-newton" readonly>
+
+                            <label for="errorAproximado-newton">Error aproximado</label>
+                            <input class="inputs-fixed" name="errorAproximado-newton" type="text" id="errorAproximado-newton" readonly>
+
+                            <label for="raizAproximada-newton">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raizAproximada-newton" type="text" id="raizAproximada-newton" readonly>
+
+                            <label for="valorReemplazando-newton">F(xr)</label>
+                            <input class="inputs-fixed" name="valorReemplazando-newton" type="text" id="valorReemplazando-newton" readonly>
+
+                            <label for="derivada">Derivada</label>
+                            <input class="inputs-fixed" name="derivada" type="text" id="derivada" readonly>
+                        </div>
+
+                    </aside>
+                    <!--Grafica newton rhapson-->
+                    <div class="contenedor posicion" id="plot-newton"></div>
+                </div>
+            </section>
+            <!--Metodo de la secante-->
+            <section id="metodo-secante">
+
+                <div class="container">
+
+                    <form id="formulario-secante" action="#" onsubmit="return false;">
+                        <label for="xl-secante"><strong>XL</strong></label>
+                        <input id="xl-secante" type="text" required/>
+
+                        <label for="xu-secante"><strong>XU</strong></label>
+                        <input id="xu-secante" type="text" required/>
+
+                        <label for="cifras-secante"><strong>Cifras</strong></label>
+                        <input id="cifras-secante" type="text" value="8" required/>
+                        <input id="calcular-secante" type="submit" value="Calcular" />
+                    </form>
+
+                    <form class="form" id="form-secante" action="#" onsubmit="return false;">
+                        <label for="ecuacion-secante"><strong>Ecuación</strong></label>
+                        <input type="text" id="ecuacion-secante" class="ecuacion" value="x^2-e" required/>
+                        <input type="submit" value="Graficar" id="graficar-secante" />
+                    </form>
+
+                </div>
+                <div class="flex-content">
+
+
+                    <aside class="resultados" id="resultados-secante">
+                        <br>
+                        <h3>RESULTADOS</h3>
+                        <br>
+                        <div class="results">
+                            <label for="iteraciones-secante">Iteraciones</label>
+                            <input class="inputs-fixed" name="iteraciones-secante" type="text" id="iteraciones-secante" readonly>
+
+                            <label for="errorEsperado-secante">Error esperado</label>
+                            <input class="inputs-fixed" name="errorEsperado-secante" type="text" id="errorEsperado-secante" readonly>
+
+                            <label for="errorAproximado-secante">Error aproximado</label>
+                            <input class="inputs-fixed" name="errorAproximado-secante" type="text" id="errorAproximado-secante" readonly>
+
+                            <label for="raizAproximada-secante">Raiz aproximada</label>
+                            <input class="inputs-fixed" name="raizAproximada-secante" type="text" id="raizAproximada-secante" readonly>
+
+                            <label for="valorReemplazando-secante">F(xr)</label>
+                            <input class="inputs-fixed" name="valorReemplazando-secante" type="text" id="valorReemplazando-secante" readonly>
+
+
+                        </div>
+                    </aside>
+                    <!--Grafica secante-->
+                    <div class="contenedor posicion" id="plot-secante"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!--Bundle de los archivos JS-->
+    <script src="bundle.js"></script>
+</body>
+
+</html>
